@@ -3,11 +3,6 @@
 import { useEffect, useState } from 'react';
 import { createSPASassClientAuthenticated as createSPASassClient } from '@/lib/supabase/client';
 
-interface UserData {
-  subscription_tier: string | null;
-  user_role: string | null;
-}
-
 export function useRemovalAdvisorSubscription() {
   const [loading, setLoading] = useState(true);
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -29,9 +24,8 @@ export function useRemovalAdvisorSubscription() {
           .eq('user_id', user.id)
           .single();
 
-        const typedData = data as UserData | null;
         setIsSubscribed(
-          typedData?.subscription_tier === 'removal_advisor' || typedData?.user_role === 'admin'
+          data?.subscription_tier === 'removal_advisor' || data?.user_role === 'admin'
         );
       } catch {
         setIsSubscribed(false);

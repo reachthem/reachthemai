@@ -1,0 +1,5 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "npx -y @supabase/mcp-server-supabase@0.8.2": true
+    }
+}

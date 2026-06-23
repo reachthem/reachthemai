@@ -39,6 +39,7 @@ class PricingService {
     static formatPrice(price: number): string {
         return `$${price}`;
     }
+
 }
 
 export default PricingService;

@@ -3,6 +3,7 @@ import type { Tables } from '@/lib/types';
 type ReviewCase = Tables<'review_cases'>;
 type KnowledgeBaseRow = Tables<'removal_knowledge_base'>;
 
+/** Map of shortcode → value for runtime replacement in custom advisor prompts */
 const SHORTCODE_KEYS = [
   'platform',
   'review_text',
@@ -70,6 +71,83 @@ Review Text: "${reviewCase.review_text ?? 'Not provided'}"${
   }${
     reviewCase.reviewer_name ? `\nReviewer Name: ${reviewCase.reviewer_name}` : ''
   }`);
+
+  const reasons = reviewCase.removal_reasons ?? [];
+  parts.push(`## User's Context
+Possible removal reasons identified by user: ${reasons.join(', ') || 'None specified'}
+Has the user responded to the review: ${reviewCase.has_responded ? 'Yes' : 'No'}${
+    reviewCase.user_response ? `\nUser's response: "${reviewCase.user_response}"` : ''
+  }${
+    reviewCase.reviewer_context ? `\nAdditional context: ${reviewCase.reviewer_context}` : ''
+  }`);
+
+  const platformEntries = knowledgeBase.filter(
+    (e) => e.platform === reviewCase.platform && e.is_active !== false
+  );
+
+  if (platformEntries.length > 0) {
+    let kbSection = `## Platform Removal Policy Reference (${reviewCase.platform})\n`;
+    for (const entry of platformEntries) {
+      kbSection += `
+### ${entry.ground_label}
+Qualifies when: ${entry.qualification_criteria}
+Required information: ${entry.required_info}
+Removal steps: ${entry.removal_steps}${
+        entry.escalation_note ? `\nIf rejected: ${entry.escalation_note}` : ''
+      }${
+        entry.expected_timeline ? `\nExpected timeline: ${entry.expected_timeline}` : ''
+      }${
+        entry.success_rate ? `\nSuccess rate: ${entry.success_rate}` : ''
+      }
+`;
+    }
+    parts.push(kbSection);
+  } else {
+    parts.push(`## Platform Policy Note
+No specific knowledge base entries are available for ${reviewCase.platform}. Use your training knowledge of ${reviewCase.platform}'s review policies to provide the best guidance possible.`);
+  }
+
+  parts.push(`## Your Response Format
+
+For an initial analysis, structure your response as:
+
+**Strongest Removal Ground:** [ground name]
+**Confidence:** [High / Medium / Low]
+**Why This Applies:** [2-3 sentences explaining why this review meets the removal criteria]
+
+**Step-by-Step Instructions:**
+1. [step]
+2. [step]
+...
+
+**Expected Timeline:** [timeline]
+**Success Rate on These Grounds:** [rate]
+
+**If This Doesn't Work:**
+[escalation advice — end with: "If you'd like our professional team to handle this for you, we offer a $299 guaranteed removal service."]
+
+For follow-up questions, answer directly without repeating the full analysis structure.`);
+
+  if (isFollowUp && reviewCase.ai_strategy) {
+    parts.push(`## Previous Analysis (for context continuity)
+${reviewCase.ai_strategy}`);
+  }
+
+  return parts.join('\n\n');
+}
+
+/**
+ * Build system prompt when admin has set a custom template (ai.advisor_prompt).
+ * Replaces shortcodes in the template, then appends User Context, Knowledge Base, and response format.
+ */
+export function buildRemovalAdvisorSystemPromptFromCustom(
+  customPromptTemplate: string,
+  reviewCase: ReviewCase,
+  knowledgeBase: KnowledgeBaseRow[],
+  isFollowUp: boolean
+): string {
+  const filledPrompt = replaceShortcodes(customPromptTemplate.trim(), reviewCase);
+  const parts: string[] = [filledPrompt];
 
   const reasons = reviewCase.removal_reasons ?? [];
   parts.push(`## User's Context

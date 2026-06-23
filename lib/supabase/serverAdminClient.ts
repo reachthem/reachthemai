@@ -1,14 +1,23 @@
-import { createClient } from '@supabase/supabase-js'
+import { createServerClient } from '@supabase/ssr'
+import {Database} from "@/lib/types";
 
-export function createAdminClient() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    {
-      auth: {
-        autoRefreshToken: false,
-        persistSession: false,
-      },
-    }
-  )
+export async function createServerAdminClient() {
+
+    return createServerClient<Database, "public", Database["public"]>(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.PRIVATE_SUPABASE_SERVICE_KEY!,
+        {
+            cookies: {
+                getAll: () => [],
+                setAll: () => {},
+            },
+            auth: {
+                persistSession: false,
+                autoRefreshToken: false,
+            },
+            db: {
+                schema: 'public'
+            },
+        }
+    )
 }
