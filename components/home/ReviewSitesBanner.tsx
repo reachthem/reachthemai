@@ -58,7 +58,7 @@ export default function ReviewSitesBanner() {
           </a>
         </p>
         <p className="text-center text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-8">
-          We Remove Reviews From These Platforms
+          We Increase 5 Star Reviews and Remove Bad Reviews From These Platforms
         </p>
       </div>
 

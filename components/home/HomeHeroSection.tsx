@@ -30,12 +30,12 @@ export default function HomeHeroSection() {
         <div className="text-center">
           <h1 className="flex flex-col gap-y-2 max-md:gap-y-1 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight max-md:text-[1.3rem] max-md:leading-snug text-center">
             <span className="text-white">Remove Negative Reviews</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-blue-300 leading-snug">Increase Rankings on Google Maps</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-blue-300 leading-snug">Increase Positive Reviews Everywhere</span>
             <span className="text-white">Get More Clients and Customers</span>
           </h1>
 
           <p className="mt-6 text-[1.1rem] leading-[1.5rem] max-md:text-[1rem] text-slate-300 max-w-3xl mx-auto">
-            Get all your negative reviews removed with our Self Service AI Review Advisor or let our Professional Team analyze your reviews, potential policy violations and execute the Review Removal operations that can get you back to a 5.0 Rating.
+            Get all your negative reviews removed with our Self Service AI Review Advisor or let our Professional Team analyze your reviews, potential policy violations and execute the Review Removal operations that can get you back to a 5.0 Rating. We also help business owners increase positive reviews and mitigate bad reviews on Google Business, Yelp, Facebook and more.
           </p>
 
           {/* Key benefits */}

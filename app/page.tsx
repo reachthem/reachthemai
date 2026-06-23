@@ -7,6 +7,7 @@ import ServiceSelectionSection from '@/components/home/ServiceSelectionSection';
 import CombinedFeaturesSection from '@/components/home/CombinedFeaturesSection';
 import ReviewSitesBanner from '@/components/home/ReviewSitesBanner';
 import NegativeReviewsCostVideoSection from '@/components/home/NegativeReviewsCostVideoSection';
+import ReviewGrowthSection from '@/components/home/ReviewGrowthSection';
 import StatsBar from '@/components/home/StatsBar';
 import PlatformsSupportedSection from '@/components/home/PlatformsSupportedSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
@@ -105,6 +106,7 @@ export default async function Home() {
           <NegativeReviewsCostVideoSection />
           <ServiceSelectionSection advisorPrice={advisorPrice} removalPrice={removalPrice} />
           <CombinedFeaturesSection />
+          <ReviewGrowthSection />
           <StatsBar />
           <PlatformsSupportedSection />
           <TestimonialsSection />
