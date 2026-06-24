@@ -68,9 +68,7 @@ export default function PainPointsSection() {
             There&apos;s a Better Way
           </h3>
           <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-            Automated review generation software takes the manual effort out of the equation. Send
-            timely, personalized review requests at scale — and watch your online reputation grow on
-            autopilot.
+            Let our platform do the heavy lifting. Our fully managed service handles everything — from strategy and messaging to campaign scheduling and response management — so you can focus on your business while we grow your reviews on autopilot. Or take control with our self-service tools if you prefer a hands-on approach.
           </p>
         </div>
       </div>

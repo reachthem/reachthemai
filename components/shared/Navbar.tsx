@@ -111,7 +111,7 @@ export default function Navbar({
                   />
                 )}
                 {link.children ? (
-                  <div className="relative group">
+                  <div className="relative group pt-2">
                     <button
                       className={`cursor-pointer text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors font-medium whitespace-nowrap inline-block py-2 ${
                         navVariant === 'marketing' ? 'text-sm max-[1475px]:text-[0.75rem]' : 'text-sm'
@@ -120,7 +120,7 @@ export default function Navbar({
                       {link.label}
                     </button>
 
-                    <div className="absolute left-0 mt-2 w-56 bg-white dark:bg-slate-800 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all pointer-events-none group-hover:pointer-events-auto z-50">
+                    <div className="absolute left-0 top-full w-56 bg-white dark:bg-slate-800 rounded-xl shadow-lg invisible group-hover:visible transform scale-95 group-hover:scale-100 transition-all pointer-events-none group-hover:pointer-events-auto z-50">
                       <div className="py-2">
                         {link.children.map((child) => (
                           <Link

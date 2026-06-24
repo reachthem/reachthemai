@@ -76,7 +76,7 @@ export default function FeaturesSection() {
 
                 <div className={isOdd ? 'lg:order-first' : ''}>
                   <div className="bg-gradient-to-br from-primary-900 to-slate-900 rounded-2xl flex items-center justify-center aspect-[4/3]">
-                    <Icon className="h-24 w-24 text-primary-400/50" />
+                    <Icon className="h-24 w-24 text-white" />
                   </div>
                 </div>
               </div>

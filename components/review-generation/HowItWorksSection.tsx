@@ -38,7 +38,7 @@ export default function HowItWorksSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step) => (
             <div key={step.number} className="text-center">
-              <div className="text-5xl font-bold text-primary-500/30 mb-4">
+              <div className="text-5xl font-bold text-white mb-4">
                 {step.number}
               </div>
               <h3 className="text-xl font-bold text-white mb-3">

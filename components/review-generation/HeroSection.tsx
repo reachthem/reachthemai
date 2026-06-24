@@ -31,9 +31,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="mt-6 text-[1.1rem] leading-[1.5rem] max-md:text-[1rem] text-slate-300 max-w-3xl mx-auto">
-            Turn every happy customer into a published review. Our review generation software
-            automatically sends personalized requests — so your star ratings grow while you
-            focus on running your business.
+            Let us handle review generation for you. Our fully managed service takes care of everything — from crafting personalized requests to managing responses — while your star ratings grow. Or use our self-service platform for complete control.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-slate-400">
