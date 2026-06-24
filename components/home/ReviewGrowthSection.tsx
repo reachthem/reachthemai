@@ -1,4 +1,4 @@
-import { ArrowUpRight, Bell, Clipboard, Mail, Share2, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Bell, Clipboard, Cpu, Mail, Share2, Sparkles } from 'lucide-react';
 
 const features = [
   {
@@ -31,6 +31,12 @@ const features = [
     description:
       'Track total reviews, star rating velocity, sentiment, and high-impact opportunities in one simple dashboard.',
   },
+  {
+    icon: Cpu,
+    title: 'AI-powered review intelligence',
+    description:
+      'Our AI optimizes review requests, routes low ratings to private feedback, drafts response suggestions, and powers intelligent review growth automation.',
+  },
 ];
 
 export default function ReviewGrowthSection() {
@@ -42,8 +48,11 @@ export default function ReviewGrowthSection() {
             Review Growth
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            Increase 5-Star Reviews and Reduce Negative Feedback
+            Guaranteed 50 Positive Reviews Per Month or You Don&apos;t Pay
           </h2>
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-4">
+            We guarantee 50 positive reviews with our fully managed campaigns or you get a full refund on that month&apos;s service fee.
+          </p>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             We help local businesses collect more positive reviews on Google Business, Yelp, Facebook and other top platforms while routing low ratings into private feedback before they go public.
           </p>

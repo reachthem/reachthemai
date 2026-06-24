@@ -33,10 +33,10 @@ export default function ServiceSelectionSection({ advisorPrice = '19', removalPr
                 <Bot className="w-8 h-8" />
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
-                AI Review Advisor
+                Review Generation Platform
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                Self-service tool for instant analysis and step-by-step removal guidance.
+                $19 per month for access to all review generation tools and campaign features.
               </p>
             </div>
 
@@ -51,22 +51,24 @@ export default function ServiceSelectionSection({ advisorPrice = '19', removalPr
             </div>
 
             <ul className="space-y-4 mb-8 flex-grow">
-              {[
-                'Instant policy violation analysis',
-                'Step-by-step removal instructions',
-                'Customized response templates',
-                'Unlimited review analysis',
-                'Works for Google, Yelp, Facebook & more'
-              ].map((feature, i) => (
-                <li key={i} className="flex items-start gap-3 text-slate-600 dark:text-slate-300">
-                  <Check className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span>{feature}</span>
-                </li>
-              ))}
+              <li className="flex items-start gap-3 text-slate-600 dark:text-slate-300">
+                <Check className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                <span>
+                  Access to All Review Generation Features (See Below)
+                  <ul className="mt-2 ml-6 list-disc text-sm text-slate-500 dark:text-slate-400 space-y-1">
+                    <li>Branded review landing pages</li>
+                    <li>Bulk review request campaigns</li>
+                    <li>Social sharing and amplification</li>
+                    <li>Real-time alerts and responses</li>
+                    <li>Review analytics and trends</li>
+                    <li>AI-powered review intelligence</li>
+                  </ul>
+                </span>
+              </li>
             </ul>
 
             <Link
-              href="/ai-advisor"
+              href="/review-generation"
               className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition-colors"
             >
               More Details
@@ -74,7 +76,7 @@ export default function ServiceSelectionSection({ advisorPrice = '19', removalPr
             </Link>
           </div>
 
-          {/* Full Service Card */}
+          {/* Managed Review Campaigns Card */}
           <div className="relative group bg-slate-900 dark:bg-slate-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all border border-slate-800 dark:border-slate-600 flex flex-col text-white">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-500 to-indigo-500 rounded-t-2xl" />
             
@@ -83,30 +85,29 @@ export default function ServiceSelectionSection({ advisorPrice = '19', removalPr
                 <UserCheck className="w-8 h-8" />
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">
-                Full Service Removal
+                Fully Managed Review Campaigns
               </h3>
               <p className="text-slate-300">
-                We handle the entire removal process for you. Professional & risk-free.
+                Guaranteed results for positive review growth with hands-off execution.
               </p>
             </div>
 
             <div className="mb-8 p-4 bg-white/5 rounded-xl border border-white/10">
               <div className="flex items-baseline gap-1">
                 <span className="text-3xl font-bold text-white">${removalPrice}</span>
-                <span className="text-slate-300">/removal</span>
+                <span className="text-slate-300">/month</span>
               </div>
               <p className="text-sm text-slate-400 mt-1">
-                Pay only for successful removals.
+                Guaranteed 50 positive reviews per month or you don&apos;t pay.
               </p>
             </div>
 
             <ul className="space-y-4 mb-8 flex-grow">
               {[
-                'Dedicated removal specialist',
-                'We file all disputes & appeals',
-                '100% Money-back guarantee',
-                'No upfront fees',
-                'Results in 1-4 weeks typically'
+                'Guaranteed 50 5-Star Reviews Per Month or You Don\'t Pay',
+                'Fully Managed Review Campaigns',
+                'Weekly Reports Emailed Showing Positive Reviews',
+                'Weekly Reports on Google Business KPI Improvements',
               ].map((feature, i) => (
                 <li key={i} className="flex items-start gap-3 text-slate-300">
                   <Check className="w-5 h-5 text-primary-400 flex-shrink-0 mt-0.5" />
@@ -116,10 +117,10 @@ export default function ServiceSelectionSection({ advisorPrice = '19', removalPr
             </ul>
 
             <Link
-              href="/review-removal-services"
+              href="/business-review-scan"
               className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl bg-primary-600 text-white font-semibold hover:bg-primary-500 transition-colors shadow-lg shadow-primary-900/20"
             >
-              Service Details
+              Start Managed Growth
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </div>
