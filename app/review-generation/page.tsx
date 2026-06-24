@@ -11,6 +11,10 @@ import HowItWorksSection from '@/components/review-generation/HowItWorksSection'
 import TestimonialsSection from '@/components/review-generation/TestimonialsSection';
 import FAQSection from '@/components/review-generation/FAQSection';
 import CTASection from '@/components/review-generation/CTASection';
+import ServiceSelectionSection from '@/components/home/ServiceSelectionSection';
+import ReviewSitesBanner from '@/components/home/ReviewSitesBanner';
+import OverviewSection from '@/components/review-generation/OverviewSection';
+import { getDisplayPrices } from '@/app/actions/admin-settings';
 
 export const metadata: Metadata = {
   title: 'Review Generation Software — Get More 5-Star Reviews | Reach Them AI',
@@ -90,7 +94,9 @@ const faqJsonLd = {
   ],
 };
 
-export default function ReviewGenerationPage() {
+export default async function ReviewGenerationPage() {
+  const { advisorPrice, removalPrice } = await getDisplayPrices();
+
   return (
     <>
       <Script
@@ -98,16 +104,19 @@ export default function ReviewGenerationPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <div className="min-h-screen bg-white dark:bg-slate-900">
-        <Navbar />
-        <main>
+      <div className="home-page min-h-screen bg-white dark:bg-slate-900">
+        <Navbar background="white" maxWidth="98%" />
+        <main className="pt-16">
           <HeroSection />
+          <ReviewSitesBanner />
           <StatsBar />
+          <OverviewSection />
           <PainPointsSection />
           <FeaturesSection />
           <ChannelsSection />
           <HowItWorksSection />
           <TestimonialsSection />
+          <ServiceSelectionSection advisorPrice={advisorPrice} removalPrice={removalPrice} />
           <FAQSection />
           <CTASection />
         </main>

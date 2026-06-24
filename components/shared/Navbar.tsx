@@ -2,7 +2,6 @@
 
 import { useState, type ReactNode } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Menu } from 'lucide-react';
 import AuthAwareButtons from '@/components/AuthAwareButtons';
 import {
@@ -25,7 +24,8 @@ const baseNavLinks: NavLink[] = [
     href: '/review-services',
     label: 'Review Services',
     children: [
-      { href: '/review-removal-services', label: 'Pro Removal' },
+      { href: '/review-generation', label: 'Review Generation' },
+      { href: '/review-removal-services', label: 'Negative Review Removal' },
       { href: '/ai-advisor', label: 'AI Advisor' },
       { href: '/business-review-scan', label: 'Analyze Reviews' },
       { href: '/free-assessment', label: 'Free Assessment' },
