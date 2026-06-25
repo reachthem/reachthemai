@@ -34,9 +34,19 @@ export async function getAdminSettings(): Promise<{
   return { settings: (settings ?? []) as AdminSetting[], error: null };
 }
 
+async function createServerAdminClientSafe() {
+  try {
+    return await createServerAdminClient();
+  } catch {
+    return null;
+  }
+}
+
 export async function getPublicSettings(): Promise<Record<string, string>> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const supabase = (await createServerAdminClient()) as any;
+  const supabase = (await createServerAdminClientSafe()) as any;
+  if (!supabase) return {};
+
   const { data: settings } = await supabase
     .from('admin_settings')
     .select('option_key, option_value')
@@ -157,7 +167,9 @@ export async function addOpenRouterTokenUsage(amount: number): Promise<void> {
 /** Public display price for AI Advisor (e.g. "19"). Used on /ai-advisor CTA and marketing. */
 export async function getAdvisorDisplayPrice(): Promise<string> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const supabase = (await createServerAdminClient()) as any;
+  const supabase = (await createServerAdminClientSafe()) as any;
+  if (!supabase) return '19';
+
   const { data: row } = await supabase
     .from('admin_settings')
     .select('option_value')
@@ -170,7 +182,9 @@ export async function getAdvisorDisplayPrice(): Promise<string> {
 /** Public display price for professional review removal (e.g. "299"). Used on pricing page and marketing. */
 export async function getRemovalDisplayPrice(): Promise<string> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const supabase = (await createServerAdminClient()) as any;
+  const supabase = (await createServerAdminClientSafe()) as any;
+  if (!supabase) return '299';
+
   const { data: row } = await supabase
     .from('admin_settings')
     .select('option_value')
@@ -183,7 +197,14 @@ export async function getRemovalDisplayPrice(): Promise<string> {
 /** Fetch both display prices in one round-trip for pages that need both. */
 export async function getDisplayPrices(): Promise<{ advisorPrice: string; removalPrice: string }> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const supabase = (await createServerAdminClient()) as any;
+  const supabase = (await createServerAdminClientSafe()) as any;
+  if (!supabase) {
+    return {
+      advisorPrice: '19',
+      removalPrice: '299',
+    };
+  }
+
   const { data: rows } = await supabase
     .from('admin_settings')
     .select('option_key, option_value')

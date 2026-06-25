@@ -404,7 +404,7 @@ export async function updateContact(
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (authError || !user) throw new Error('Unauthorized');
 
-  const payload: Record<string, unknown> = { ...data, updated_at: new Date().toISOString() };
+  const payload = { ...data, updated_at: new Date().toISOString() };
   const { data: updated, error } = await supabase
     .from('saved_contacts')
     .update(payload)
