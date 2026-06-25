@@ -25,3 +25,7 @@ npm run dev
 - shadcn/ui components
 - Supabase
 - Stripe
+
+## Change Log
+
+- Successful Production Build
