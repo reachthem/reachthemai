@@ -1,6 +1,10 @@
 import { CheckCircle2 } from 'lucide-react';
 
-const features = [["AI website generation", "Build a complete site quickly with content, structure, and visuals tailored to the business.", ["Responsive layouts", "Custom pages", "Modern visual system"]], ["Local SEO foundations", "Optimize the site for local search with schema, location content, and site structure.", ["Schema markup", "Location-based pages", "On-page SEO support"]], ["Performance and conversion", "Create pages that load fast, look polished, and guide visitors toward action.", ["Clear calls to action", "Contact and booking paths", "Review and trust signals"]]];
+const features: Array<[string, string, string[]]> = [
+  ["AI website generation", "Build a complete site quickly with content, structure, and visuals tailored to the business.", ["Responsive layouts", "Custom pages", "Modern visual system"]],
+  ["Local SEO foundations", "Optimize the site for local search with schema, location content, and site structure.", ["Schema markup", "Location-based pages", "On-page SEO support"]],
+  ["Performance and conversion", "Create pages that load fast, look polished, and guide visitors toward action.", ["Clear calls to action", "Contact and booking paths", "Review and trust signals"]],
+];
 
 export default function FeaturesSection() {
   return (

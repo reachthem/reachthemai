@@ -1,4 +1,10 @@
 export default function OverviewSection() {
+  const overviewCards = [
+    ["Repeatable workflow", "Streamline content planning and publishing so your team can stay consistent without manual overhead."],
+    ["Audience relevance", "Create social posts that reflect local trends, service updates, and customer intent."],
+    ["Cross-channel efficiency", "Coordinate posting and messaging across channels without losing brand consistency."],
+  ];
+
   return (
     <section className="bg-white py-20 dark:bg-slate-900">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -8,7 +14,7 @@ export default function OverviewSection() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-3">
-          {page['overviewCards'].map(([title, body]) => (
+          {overviewCards.map(([title, body]) => (
             <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800/50">
               <h3 className="mb-3 text-xl font-semibold text-slate-900 dark:text-white">{title}</h3>
               <p className="text-slate-600 dark:text-slate-400">{body}</p>

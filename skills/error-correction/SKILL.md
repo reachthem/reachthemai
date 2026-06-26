@@ -21,6 +21,11 @@ This skill instructs the agent to correct errors submitted by the user in chat w
    - Read the user-provided error, code snippet, or chat content carefully.
    - Identify the smallest change that resolves the issue.
 
+   **Check for exact failure in other parts of the code**
+   - Search the code for that specific error or issue.
+   - Fix any other instances of the same error
+   .
+
 2. **Minimize changes**
    - Prefer a one-line or small localized patch.
    - Do not rewrite unrelated code or add new features.
