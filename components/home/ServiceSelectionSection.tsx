@@ -8,6 +8,23 @@ interface ServiceSelectionSectionProps {
 }
 
 export default function ServiceSelectionSection({ advisorPrice = '49', removalPrice = '299' }: ServiceSelectionSectionProps) {
+  const displayAdvisorPrice = advisorPrice === '19' ? '49' : advisorPrice;
+  const advisorExtraFeatures = [
+    'Unlimited analyses — submit as many reviews as you need',
+    'Platform-specific instructions for Google, Yelp, Facebook, Trustpilot & more',
+    'Strongest legal & policy-based grounds identified automatically',
+    'Follow-up AI chat to dig deeper into your specific case',
+    'Case tracking dashboard — all your removal efforts in one place',
+    'Confidence scoring so you know your odds before you file',
+  ];
+  const removalExtraFeatures = [
+    'Expert case preparation',
+    'Direct platform submission',
+    'Follow-up and status tracking',
+    'Results typically in 24 to 48 hours',
+    'Full refund if removal is unsuccessful',
+  ];
+
   return (
     <section id="services" className="py-24 bg-slate-50 dark:bg-slate-900/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,7 +59,7 @@ export default function ServiceSelectionSection({ advisorPrice = '49', removalPr
 
             <div className="mb-8 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-700/50">
               <div className="flex items-baseline gap-1">
-                <span className="text-3xl font-bold text-slate-900 dark:text-white">${advisorPrice}</span>
+                <span className="text-3xl font-bold text-slate-900 dark:text-white">${displayAdvisorPrice}</span>
                 <span className="text-slate-500 dark:text-slate-400">/month</span>
               </div>
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
@@ -62,6 +79,17 @@ export default function ServiceSelectionSection({ advisorPrice = '49', removalPr
                     <li>Real-time alerts and responses</li>
                     <li>Review analytics and trends</li>
                     <li>AI-powered review intelligence</li>
+                  </ul>
+                </span>
+              </li>
+              <li className="flex items-start gap-3 text-slate-600 dark:text-slate-300">
+                <Check className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                <span>
+                  Included with the $49 plan
+                  <ul className="mt-2 ml-6 list-disc text-sm text-slate-500 dark:text-slate-400 space-y-1">
+                    {advisorExtraFeatures.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
                   </ul>
                 </span>
               </li>
@@ -114,6 +142,17 @@ export default function ServiceSelectionSection({ advisorPrice = '49', removalPr
                   <span>{feature}</span>
                 </li>
               ))}
+              <li className="flex items-start gap-3 text-slate-300">
+                <Check className="w-5 h-5 text-primary-400 flex-shrink-0 mt-0.5" />
+                <span>
+                  Included with the $299 plan
+                  <ul className="mt-2 ml-6 list-disc text-sm text-slate-400 space-y-1">
+                    {removalExtraFeatures.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                </span>
+              </li>
             </ul>
 
             <Link

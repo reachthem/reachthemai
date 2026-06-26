@@ -36,9 +36,14 @@ const baseNavLinks: NavLink[] = [
       href: '/coming-soon',
       label: 'Coming Soon',
       children: [
-        { href: '/ai-phone-agents', label: 'AI Phone Agents' },
         { href: '/local-listing-aggregation', label: 'Local Listing Aggregation' },
         { href: '/reputation-management-tracking', label: 'Reputation Management' },
+        { href: '/ai-phone-agents', label: 'AI Phone Agents' },
+        { href: '/local-rank-tracking', label: 'Local Rank Tracking' },
+        { href: '/google-business-ai-profile-optimization', label: 'Google Business AI Profile Optimization' },
+        { href: '/ai-local-seo-content-generation', label: 'AI Local SEO Content Generation' },
+        { href: '/ai-local-business-website-builder', label: 'AI Local Business Website Builder' },
+        { href: '/social-media-management-ai-posting', label: 'Social Media Management & AI Posting' },
       ],
     },
   { href: PRICING_PATH, label: 'Pricing' },
@@ -130,7 +135,7 @@ export default function Navbar({
                       {link.label}
                     </button>
 
-                    <div className="absolute left-0 top-full w-56 bg-white dark:bg-slate-800 rounded-xl shadow-lg invisible group-hover:visible transform scale-95 group-hover:scale-100 transition-all pointer-events-none group-hover:pointer-events-auto z-50">
+                    <div className="absolute left-0 top-full w-80 max-w-[90vw] bg-white dark:bg-slate-800 rounded-xl shadow-lg invisible group-hover:visible transform scale-95 group-hover:scale-100 transition-all pointer-events-none group-hover:pointer-events-auto z-50">
                       <div className="py-2">
                         {link.children.map((child) => (
                           <Link

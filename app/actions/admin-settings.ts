@@ -200,7 +200,7 @@ export async function getDisplayPrices(): Promise<{ advisorPrice: string; remova
   const supabase = (await createServerAdminClientSafe()) as any;
   if (!supabase) {
     return {
-      advisorPrice: '19',
+      advisorPrice: '49',
       removalPrice: '299',
     };
   }
@@ -216,7 +216,7 @@ export async function getDisplayPrices(): Promise<{ advisorPrice: string; remova
     ])
   );
   return {
-    advisorPrice: map.stripe_removal_advisor_price || '19',
+    advisorPrice: map.stripe_removal_advisor_price || '49',
     removalPrice: map.stripe_review_removal_price || '299',
   };
 }

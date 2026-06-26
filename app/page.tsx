@@ -12,8 +12,7 @@ import StatsBar from '@/components/home/StatsBar';
 import PlatformsSupportedSection from '@/components/home/PlatformsSupportedSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import HomeFAQSection from '@/components/home/HomeFAQSection';
-import HomeCTASection from '@/components/home/HomeCTASection';
-import { getDisplayPrices } from '@/app/actions/admin-settings';
+import HomeCTASection from '@/components/home/HomeCTASection';import HomePricing from '@/components/HomePricing';import { getDisplayPrices } from '@/app/actions/admin-settings';
 
 export const metadata: Metadata = {
   title: 'Remove Bad Reviews & Protect Your Reputation | Reach Them AI',
@@ -105,6 +104,7 @@ export default async function Home() {
           <ReviewSitesBanner />
           <NegativeReviewsCostVideoSection />
           <ServiceSelectionSection advisorPrice={advisorPrice} removalPrice={removalPrice} />
+          <HomePricing />
           <CombinedFeaturesSection />
           <ReviewGrowthSection />
           <StatsBar />
