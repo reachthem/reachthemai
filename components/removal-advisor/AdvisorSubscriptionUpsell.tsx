@@ -53,7 +53,7 @@ interface AdvisorSubscriptionUpsellProps {
 }
 
 export default function AdvisorSubscriptionUpsell({
-  advisorPrice = '19',
+  advisorPrice = '49',
   prependedFeatures,
 }: AdvisorSubscriptionUpsellProps) {
   const includedItems = prependedFeatures?.length

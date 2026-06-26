@@ -18,7 +18,7 @@ import { getDisplayPrices } from '@/app/actions/admin-settings';
 export const metadata: Metadata = {
   title: 'Remove Bad Reviews & Protect Your Reputation | Reach Them AI',
   description:
-    'Take control of your online reputation. Choose between our $19/mo AI Advisor for self-service guidance or our Full Service Removal for professional, guaranteed results.',
+    'Take control of your online reputation. Choose between our $49/mo AI Advisor for self-service guidance or our Full Service Removal for professional, guaranteed results.',
   keywords: [
     'remove bad reviews',
     'online reputation management',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Remove Bad Reviews & Protect Your Reputation | Reach Them AI',
     description:
-      'Take control of your online reputation. Choose between our $19/mo AI Advisor for self-service guidance or our Full Service Removal for professional, guaranteed results.',
+      'Take control of your online reputation. Choose between our $49/mo AI Advisor for self-service guidance or our Full Service Removal for professional, guaranteed results.',
     type: 'website',
     images: ['/featured.png'],
   },

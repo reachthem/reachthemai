@@ -2,7 +2,7 @@
 
 import { useState, type ReactNode } from 'react';
 import Link from 'next/link';
-import { Menu } from 'lucide-react';
+import { ChevronDown, Menu } from 'lucide-react';
 import AuthAwareButtons from '@/components/AuthAwareButtons';
 import {
   Sheet,
@@ -32,6 +32,15 @@ const baseNavLinks: NavLink[] = [
       { href: '/industries', label: 'Industries' },
     ],
   },
+    {
+      href: '/coming-soon',
+      label: 'Coming Soon',
+      children: [
+        { href: '/ai-phone-agents', label: 'AI Phone Agents' },
+        { href: '/local-listing-aggregation', label: 'Local Listing Aggregation' },
+        { href: '/reputation-management-tracking', label: 'Reputation Management' },
+      ],
+    },
   { href: PRICING_PATH, label: 'Pricing' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -63,6 +72,7 @@ export default function Navbar({
   navVariant = 'marketing',
 }: NavbarProps) {
   const [open, setOpen] = useState(false);
+  const [mobileOpenSection, setMobileOpenSection] = useState<string | null>(null);
 
   const navLinks: NavLink[] =
     navVariant === 'app'
@@ -168,39 +178,50 @@ export default function Navbar({
                   </button>
                 </SheetTrigger>
 
-                <SheetContent side="right">
+                <SheetContent side="right" className="w-[92vw] sm:w-[24rem]">
                   <SheetHeader>
                     <SheetTitle className="flex items-center gap-2">
                       <img
                         src="https://pgtpgkmtuntmplnuveak.supabase.co/storage/v1/object/public/site-images/logo.png"
                         alt="Reach Them AI"
-                        className="w-[250px] h-auto object-contain"
+                        className="w-[220px] h-auto object-contain"
                       />
                     </SheetTitle>
                   </SheetHeader>
 
-                  <nav className="mt-8 flex flex-col gap-2">
+                  <nav className="mt-6 flex flex-col gap-2">
                     {navLinks.map((link: NavLink) => (
                       link.children ? (
-                        <div key={link.label}>
-                          <div className="px-3 py-3 rounded-lg text-slate-700 dark:text-slate-300 font-medium">{link.label}</div>
-                          {link.children.map((child) => (
-                            <SheetClose asChild key={child.href}>
-                              <Link
-                                href={child.href}
-                                className="px-6 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors ml-2"
-                                onClick={() => setOpen(false)}
-                              >
-                                {child.label}
-                              </Link>
-                            </SheetClose>
-                          ))}
+                        <div key={link.label} className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50/80 dark:border-slate-700 dark:bg-slate-900/70">
+                          <button
+                            type="button"
+                            className="flex w-full items-center justify-between px-4 py-3 text-left text-slate-700 dark:text-slate-300 font-semibold"
+                            onClick={() => setMobileOpenSection(mobileOpenSection === link.label ? null : link.label)}
+                          >
+                            <span>{link.label}</span>
+                            <ChevronDown className={`h-4 w-4 transition-transform ${mobileOpenSection === link.label ? 'rotate-180' : ''}`} />
+                          </button>
+                          {mobileOpenSection === link.label && (
+                            <div className="border-t border-slate-200 bg-white/70 p-2 dark:border-slate-700 dark:bg-slate-950/70">
+                              {link.children.map((child) => (
+                                <SheetClose asChild key={child.href}>
+                                  <Link
+                                    href={child.href}
+                                    className="block rounded-lg px-3 py-2.5 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                                    onClick={() => setOpen(false)}
+                                  >
+                                    {child.label}
+                                  </Link>
+                                </SheetClose>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       ) : (
                         <SheetClose asChild key={link.href}>
                           <Link
                             href={link.href!}
-                            className="px-3 py-3 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors"
+                            className="rounded-xl px-4 py-3 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold transition-colors"
                             onClick={() => setOpen(false)}
                           >
                             {link.label}
@@ -213,7 +234,7 @@ export default function Navbar({
                       <SheetClose asChild>
                         <Link
                           href="/auth/login"
-                          className="px-3 py-3 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors"
+                          className="rounded-xl px-4 py-3 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold transition-colors"
                         >
                           Login
                         </Link>
@@ -221,7 +242,7 @@ export default function Navbar({
                       <SheetClose asChild>
                         <Link
                           href="/auth/register"
-                          className="px-4 py-3 rounded-xl bg-primary-600 text-white font-semibold text-center hover:bg-primary-700 transition-colors"
+                          className="rounded-xl bg-primary-600 px-4 py-3 text-center font-semibold text-white transition-colors hover:bg-primary-700"
                         >
                           Get Started
                         </Link>

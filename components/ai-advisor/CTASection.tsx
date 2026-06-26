@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, Brain } from 'lucide-react';
 
-export default function CTASection({ price = '19' }: { price?: string }) {
+export default function CTASection({ price = '49' }: { price?: string }) {
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-br from-primary-700 via-primary-600 to-blue-700">
       {/* Background decorative elements */}

@@ -15,7 +15,7 @@ interface AdvisorServiceSectionProps {
 }
 
 export default function AdvisorServiceSection({
-  advisorPrice = '19',
+  advisorPrice = '49',
 }: AdvisorServiceSectionProps) {
   return (
     <section className="py-24 bg-white dark:bg-slate-900">

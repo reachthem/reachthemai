@@ -33,7 +33,7 @@ const reviews = [
   },
   {
     name: 'William Foster',
-    text: 'Unlimited analyses for $19 is a steal. I run a dental practice and we get the occasional bogus review. I run each one through the advisor now and only pursue the ones with a high removal probability. No more wasted time.',
+    text: 'Unlimited analyses for $49 is a steal. I run a dental practice and we get the occasional bogus review. I run each one through the advisor now and only pursue the ones with a high removal probability. No more wasted time.',
   },
   {
     name: 'Charlotte Hayes',
@@ -53,7 +53,7 @@ const reviews = [
   },
   {
     name: 'Lily Patterson',
-    text: 'The dashboard keeps all my cases in one place and the AI chat is there when I have questions. For $19 a month it’s a no-brainer. We’ve successfully had four reviews removed across Google and Facebook.',
+    text: 'The dashboard keeps all my cases in one place and the AI chat is there when I have questions. For $49 a month it’s a no-brainer. We’ve successfully had four reviews removed across Google and Facebook.',
   },
   {
     name: 'Samuel Reed',

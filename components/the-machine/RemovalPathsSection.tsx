@@ -6,7 +6,7 @@ interface RemovalPathsSectionProps {
   removalPrice?: string;
 }
 
-export default function RemovalPathsSection({ advisorPrice = '19', removalPrice = '299' }: RemovalPathsSectionProps) {
+export default function RemovalPathsSection({ advisorPrice = '49', removalPrice = '299' }: RemovalPathsSectionProps) {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

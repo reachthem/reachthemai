@@ -16,7 +16,7 @@ interface PricingSectionProps {
   advisorPrice?: string;
 }
 
-export default function PricingSection({ advisorPrice = '19' }: PricingSectionProps) {
+export default function PricingSection({ advisorPrice = '49' }: PricingSectionProps) {
   return (
     <section id="pricing" className="py-24 bg-slate-50 dark:bg-slate-950">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -169,7 +169,7 @@ function RegisterForm() {
                 </div>
             </form>
 
-            <SSOButtons onError={setError} redirectTo={redirectTo} actionLabel="Register" />
+            <SSOButtons onError={setError} redirectTo={redirectTo} actionLabel="Register" showSocialAuth={false} />
 
             <div className="mt-6 text-center text-sm">
                 <span className="text-gray-600">Already have an account?</span>

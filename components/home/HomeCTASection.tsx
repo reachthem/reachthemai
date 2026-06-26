@@ -5,7 +5,7 @@ interface HomeCTASectionProps {
   advisorPrice?: string;
 }
 
-export default function HomeCTASection({ advisorPrice = '19' }: HomeCTASectionProps) {
+export default function HomeCTASection({ advisorPrice = '49' }: HomeCTASectionProps) {
   return (
     <section className="py-12 md:py-24 relative overflow-hidden bg-gradient-to-br from-primary-700 via-primary-600 to-blue-700">
       {/* Background decorative elements */}

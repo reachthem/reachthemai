@@ -53,7 +53,7 @@ function buildFaqs(advisorPrice: string, removalPrice: string) {
 ];
 }
 
-export default function FAQSection({ advisorPrice = '19', removalPrice = '299' }: FAQSectionProps) {
+export default function FAQSection({ advisorPrice = '49', removalPrice = '299' }: FAQSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const FAQS = useMemo(() => buildFaqs(advisorPrice, removalPrice), [advisorPrice, removalPrice]);
 

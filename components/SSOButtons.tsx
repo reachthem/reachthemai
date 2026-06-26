@@ -11,6 +11,8 @@ interface SSOButtonsProps {
     redirectTo?: string;
     /** Button action label, e.g. "Sign In" or "Register". Defaults to "Continue". */
     actionLabel?: string;
+    /** Hide the social auth UI entirely for specific auth flows. */
+    showSocialAuth?: boolean;
 }
 
 const PROVIDER_CONFIGS = {
@@ -70,7 +72,7 @@ function getEnabledProviders(): Provider[] {
     );
 }
 
-export default function SSOButtons({ onError, redirectTo, actionLabel = 'Continue' }: SSOButtonsProps) {
+export default function SSOButtons({ onError, redirectTo, actionLabel = 'Continue', showSocialAuth = true }: SSOButtonsProps) {
     const handleSSOLogin = async (provider: Provider) => {
         try {
             const supabase = createSPAClient();
@@ -97,7 +99,7 @@ export default function SSOButtons({ onError, redirectTo, actionLabel = 'Continu
 
     const enabledProviders = getEnabledProviders();
 
-    if (enabledProviders.length === 0) {
+    if (!showSocialAuth || enabledProviders.length === 0) {
         return null;
     }
 

@@ -66,7 +66,7 @@ export async function POST(request: Request) {
           stripe_customer_id: customerId ?? null,
           status: 'paid',
           description: isSubscription
-            ? 'AI Removal Advisor — $19/month subscription'
+            ? 'AI Removal Advisor — $49/month subscription'
             : 'Negative review removal service — $299 per removal',
           billing_date: new Date().toISOString(),
         }).select('id').single();
@@ -180,7 +180,7 @@ export async function POST(request: Request) {
                   plan_key: 'removal_advisor_monthly',
                   stripe_customer_id: customerId,
                   status: subscription.status,
-                  description: 'AI Removal Advisor — $19/month subscription',
+                  description: 'AI Removal Advisor — $49/month subscription',
                   billing_date: new Date().toISOString(),
                 });
               }

@@ -7,7 +7,7 @@ interface ServiceSelectionSectionProps {
   removalPrice?: string;
 }
 
-export default function ServiceSelectionSection({ advisorPrice = '19', removalPrice = '299' }: ServiceSelectionSectionProps) {
+export default function ServiceSelectionSection({ advisorPrice = '49', removalPrice = '299' }: ServiceSelectionSectionProps) {
   return (
     <section id="services" className="py-24 bg-slate-50 dark:bg-slate-900/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,7 +36,7 @@ export default function ServiceSelectionSection({ advisorPrice = '19', removalPr
                 Review Generation Platform
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                $19 per month for access to all review generation tools and campaign features.
+                $49 per month for access to all review generation tools and campaign features.
               </p>
             </div>
 

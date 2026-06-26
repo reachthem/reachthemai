@@ -17,7 +17,7 @@ interface TwoPathsRemovalSectionProps {
  * and the AI Review Advisor + Full Service Removal cards (same card design as home ServiceSelectionSection).
  */
 export default function TwoPathsRemovalSection({
-  advisorPrice = '19',
+  advisorPrice = '49',
   removalPrice = '299',
   advisorButtonHref = '/ai-advisor',
   advisorButtonText = 'Get AI Advisor',

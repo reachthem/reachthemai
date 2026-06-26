@@ -16,7 +16,7 @@ interface AdvisorPricingCardProps {
 }
 
 export default function AdvisorPricingCard({
-  advisorPrice = '19',
+  advisorPrice = '49',
   className = '',
 }: AdvisorPricingCardProps) {
   return (

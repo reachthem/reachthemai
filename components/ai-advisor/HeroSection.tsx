@@ -7,7 +7,7 @@ interface HeroSectionProps {
   advisorPrice?: string;
 }
 
-export default function HeroSection({ advisorPrice = '19' }: HeroSectionProps) {
+export default function HeroSection({ advisorPrice = '49' }: HeroSectionProps) {
   return (
     <section className="relative pt-20 max-md:pt-12 pb-24 max-md:pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-primary-900 to-slate-900">
       {/* Background decorative elements — matches /review-removal-services hero */}

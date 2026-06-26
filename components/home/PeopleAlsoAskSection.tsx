@@ -18,7 +18,7 @@ const questions = [
   },
   {
     question: 'How much does online reputation management cost?',
-    answer: 'At Reach Them AI, review removal is $299 per successfully removed review with a 100% money back guarantee. Our AI Review Advisor self-service tool is $19/month. Enterprise and multi-location businesses can request custom pricing. Unlike many competitors, we charge a flat rate per removal rather than expensive monthly retainers.',
+    answer: 'At Reach Them AI, review removal is $299 per successfully removed review with a 100% money back guarantee. Our AI Review Advisor self-service tool is $49/month. Enterprise and multi-location businesses can request custom pricing. Unlike many competitors, we charge a flat rate per removal rather than expensive monthly retainers.',
   },
   {
     question: 'What happens if a review can\'t be removed?',
@@ -42,7 +42,7 @@ const questions = [
   },
   {
     question: 'How do I know if a review violates platform policies?',
-    answer: 'Each platform has detailed content policies covering fake reviews, spam, conflicts of interest, harassment, off-topic content, and more. Our free assessment analyzes your reviews against these policies and identifies which ones have valid grounds for removal. You can also use our AI Review Advisor tool ($19/month) for instant AI-powered policy violation analysis on any review.',
+    answer: 'Each platform has detailed content policies covering fake reviews, spam, conflicts of interest, harassment, off-topic content, and more. Our free assessment analyzes your reviews against these policies and identifies which ones have valid grounds for removal. You can also use our AI Review Advisor tool ($49/month) for instant AI-powered policy violation analysis on any review.',
   },
 ];
 

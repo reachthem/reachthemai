@@ -68,7 +68,7 @@ export default function AIAuditSection() {
             Self-Service AI Audit
           </span>
           <h2 className="text-4xl font-bold text-slate-900 dark:text-white">
-            Your AI-Guided Review Audit — $19/month
+            Your AI-Guided Review Audit — $49/month
           </h2>
           <p className="mt-4 text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             No waiting for a consultant. No retainer fees. Submit a review, get an AI-powered
@@ -81,7 +81,7 @@ export default function AIAuditSection() {
           <div className="rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6">
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
               Self-Service AI Audit&nbsp;
-              <span className="text-primary-600 dark:text-primary-400">($19/mo)</span>
+              <span className="text-primary-600 dark:text-primary-400">($49/mo)</span>
             </h3>
             <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
               You submit reviews, review the AI audit report, and follow the step-by-step

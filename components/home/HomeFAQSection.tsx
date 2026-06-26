@@ -51,7 +51,7 @@ function buildFaqs(advisorPrice: string, removalPrice: string) {
 ];
 }
 
-export default function HomeFAQSection({ advisorPrice = '19', removalPrice = '299' }: HomeFAQSectionProps) {
+export default function HomeFAQSection({ advisorPrice = '49', removalPrice = '299' }: HomeFAQSectionProps) {
   const faqs = buildFaqs(advisorPrice, removalPrice);
   return (
     <section id="faq" className="py-24 bg-white dark:bg-slate-900">
