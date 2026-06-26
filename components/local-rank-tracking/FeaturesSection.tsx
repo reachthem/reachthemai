@@ -1,6 +1,22 @@
 import { CheckCircle2 } from 'lucide-react';
 
-const features = [["Hyper-local rank tracking", "Track visibility at the neighborhood level and compare performance against local competitors.", ["Street-level monitoring", "Custom radius tracking", "Heatmaps and trend reporting"]], ["AI engine optimization", "Measure presence across Google, ChatGPT, Perplexity, and other AI discovery systems.", ["AEO visibility tracking", "Prompt pattern insights", "Generative AI optimization recommendations"]], ["Predictive insights", "Use AI to spot anomalies and forecast future improvements or drops in visibility.", ["Anomaly detection", "Performance forecasts", "Automated alerts"]]];
+const features: [string, string, string[]][] = [
+  [
+    "Hyper-local rank tracking",
+    "Track visibility at the neighborhood level and compare performance against local competitors.",
+    ["Street-level monitoring", "Custom radius tracking", "Heatmaps and trend reporting"],
+  ],
+  [
+    "AI engine optimization",
+    "Measure presence across Google, ChatGPT, Perplexity, and other AI discovery systems.",
+    ["AEO visibility tracking", "Prompt pattern insights", "Generative AI optimization recommendations"],
+  ],
+  [
+    "Predictive insights",
+    "Use AI to spot anomalies and forecast future improvements or drops in visibility.",
+    ["Anomaly detection", "Performance forecasts", "Automated alerts"],
+  ],
+];
 
 export default function FeaturesSection() {
   return (

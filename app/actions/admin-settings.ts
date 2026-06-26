@@ -164,11 +164,11 @@ export async function addOpenRouterTokenUsage(amount: number): Promise<void> {
   }
 }
 
-/** Public display price for AI Advisor (e.g. "19"). Used on /ai-advisor CTA and marketing. */
+/** Public display price for AI Advisor (e.g. "49"). Used on /ai-advisor CTA and marketing. */
 export async function getAdvisorDisplayPrice(): Promise<string> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const supabase = (await createServerAdminClientSafe()) as any;
-  if (!supabase) return '19';
+  if (!supabase) return '49';
 
   const { data: row } = await supabase
     .from('admin_settings')
@@ -176,7 +176,7 @@ export async function getAdvisorDisplayPrice(): Promise<string> {
     .eq('option_key', 'stripe_removal_advisor_price')
     .single();
   const value = (row as { option_value?: string } | null)?.option_value;
-  return value && String(value).trim() ? String(value).trim() : '19';
+  return value && String(value).trim() ? String(value).trim() : '49';
 }
 
 /** Public display price for professional review removal (e.g. "299"). Used on pricing page and marketing. */

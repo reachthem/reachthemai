@@ -1,6 +1,22 @@
 import { CheckCircle2 } from 'lucide-react';
 
-const features = [["AI content ideas", "Build a pipeline of local topics aligned to customer needs and search trends.", ["Blog and service topics", "Seasonal trend prompts", "Long-tail local keywords"]], ["Local content generation", "Create posts, captions, and articles that are relevant to the business and location.", ["GBP post drafts", "Social captions", "SEO-friendly blog content"]], ["Content optimization", "Make content stronger for both traditional search and AI answer visibility.", ["Tone matching", "Readability scoring", "Performance-based refinement"]]];
+const features: [string, string, string[]][] = [
+  [
+    "AI content ideas",
+    "Build a pipeline of local topics aligned to customer needs and search trends.",
+    ["Blog and service topics", "Seasonal trend prompts", "Long-tail local keywords"],
+  ],
+  [
+    "Local content generation",
+    "Create posts, captions, and articles that are relevant to the business and location.",
+    ["GBP post drafts", "Social captions", "SEO-friendly blog content"],
+  ],
+  [
+    "Content optimization",
+    "Make content stronger for both traditional search and AI answer visibility.",
+    ["Tone matching", "Readability scoring", "Performance-based refinement"],
+  ],
+];
 
 export default function FeaturesSection() {
   return (

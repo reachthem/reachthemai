@@ -1,6 +1,22 @@
 import { CheckCircle2 } from 'lucide-react';
 
-const features = [["Content planning", "Create social strategies built around local themes, offers, and customer moments.", ["Campaign planning", "Topic calendars", "Local event prompts"]], ["AI posting support", "Draft and schedule posts that feel useful, branded, and consistent.", ["Social copy generation", "Scheduling support", "Brand voice alignment"]], ["Performance awareness", "Refine your social approach using engagement and content signals from the platform.", ["Post performance tracking", "Audience insights", "Iterative suggestions"]]];
+const features: [string, string, string[]][] = [
+  [
+    "Content planning",
+    "Create social strategies built around local themes, offers, and customer moments.",
+    ["Campaign planning", "Topic calendars", "Local event prompts"],
+  ],
+  [
+    "AI posting support",
+    "Draft and schedule posts that feel useful, branded, and consistent.",
+    ["Social copy generation", "Scheduling support", "Brand voice alignment"],
+  ],
+  [
+    "Performance awareness",
+    "Refine your social approach using engagement and content signals from the platform.",
+    ["Post performance tracking", "Audience insights", "Iterative suggestions"],
+  ],
+];
 
 export default function FeaturesSection() {
   return (

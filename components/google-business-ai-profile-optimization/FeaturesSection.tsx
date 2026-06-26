@@ -1,6 +1,22 @@
 import { CheckCircle2 } from 'lucide-react';
 
-const features = [["Profile completeness audits", "Identify gaps and prioritize improvements that matter most for local discoverability.", ["Category and attribute checks", "Photo and description scoring", "Prioritized action list"]], ["AI post suggestions", "Create GBP posts that are timely, relevant, and optimized to engage nearby customers.", ["Offer and event prompts", "Call-to-action drafting", "Timing recommendations"]], ["Q&A and catalog optimization", "Generate helpful responses and improve service or product details at scale.", ["Response drafting", "Attribute recommendations", "Catalog enhancements"]]];
+const features: [string, string, string[]][] = [
+  [
+    "Profile completeness audits",
+    "Identify gaps and prioritize improvements that matter most for local discoverability.",
+    ["Category and attribute checks", "Photo and description scoring", "Prioritized action list"],
+  ],
+  [
+    "AI post suggestions",
+    "Create GBP posts that are timely, relevant, and optimized to engage nearby customers.",
+    ["Offer and event prompts", "Call-to-action drafting", "Timing recommendations"],
+  ],
+  [
+    "Q&A and catalog optimization",
+    "Generate helpful responses and improve service or product details at scale.",
+    ["Response drafting", "Attribute recommendations", "Catalog enhancements"],
+  ],
+];
 
 export default function FeaturesSection() {
   return (

@@ -127,7 +127,7 @@ export async function getAdminDashboardStats(): Promise<{
   }
 
   const advisorSubscribers = subMap.get('removal_advisor') ?? 0;
-  const advisorPrice = parseFloat(settingsMap['stripe_removal_advisor_price'] || '19') || 19;
+  const advisorPrice = parseFloat(settingsMap['stripe_removal_advisor_price'] || '49') || 49;
   const advisorMRR = advisorSubscribers * advisorPrice;
 
   const totalRevenue = (billingAllRes.data ?? []).reduce(
