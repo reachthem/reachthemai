@@ -47,6 +47,33 @@ This skill guides the agent through a reliable workflow for diagnosing and fixin
    - If certain build failures depend on missing environment variables, note that separately from code fixes.
    - Prefer concise, actionable explanations.
 
+7. **Focus on the exact failure**
+   - Read the user-provided error, code snippet, or chat content carefully.
+   - Identify the smallest change that resolves the issue.
+
+ 8. **Check for exact failure in other parts of the code**
+   - Search the code for that specific error or issue.
+   - Fix any other instances of the same error
+   .
+
+9. **Minimize changes**
+   - Prefer a one-line or small localized patch.
+   - Do not rewrite unrelated code or add new features.
+   - Keep the existing structure, variable names, and formatting unless the error requires a targeted fix.
+
+10. **Minimize tokens**
+   - Use concise output and avoid verbose explanations.
+   - When showing code, return only the changed lines or the smallest complete snippet needed to understand the fix.
+   - Avoid duplicate or redundant text.
+
+11. **Be direct**
+   - If a short fix is enough, provide it without a long preamble.
+   - If an explanation is needed, keep it brief and targeted to the cause and fix.
+
+12. **Ask only if necessary**
+   - If the bug cannot be fixed safely without more context, ask a focused clarifying question.
+   - Do not ask broad or open-ended questions.
+
 ## Output format
 
 - Provide a step-by-step remediation plan when the user asks for a debugging strategy.
