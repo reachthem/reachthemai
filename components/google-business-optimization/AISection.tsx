@@ -1,6 +1,6 @@
 import { Bot, Sparkles, Workflow } from 'lucide-react';
 
-const items = [["Context-aware writing", "Generate content that reflects your business, audience, and local context instead of sounding generic."], ["Cross-channel support", "Use the same content intelligence across blogs, social, and GBP updates."], ["Continuous improvement", "Learn from what performs best and adapt future content accordingly."]];
+const items = [["Predictive optimization", "Forecast how updates may affect visibility and engagement before you publish them."], ["Connected intelligence", "Learn from review, ranking, and mention performance to refine updates over time."], ["Consistent execution", "Keep every profile aligned with your brand voice and local goals without extra manual work."]];
 
 export default function AISection() {
   return (
@@ -23,7 +23,7 @@ export default function AISection() {
             {items.map(([title, text]) => {
               const Icon = title.includes('Real') || title.includes('Smart') ? Bot : title.includes('Connected') ? Workflow : Sparkles;
               return (
-                <div key={title} className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
+                <div key={title} className="rounded-2xl border border-white/10 p-5">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary-500/20 text-primary-300">
                     <Icon className="h-5 w-5" />
                   </div>

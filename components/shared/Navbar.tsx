@@ -27,11 +27,11 @@ const baseNavLinks: NavLink[] = [
       { href: '/review-removal-services', label: 'Review Removal', icon: Trash2 },
       { href: '/local-listing-aggregation', label: 'Local Listings', icon: MapPin },
       { href: '/reputation-management-tracking', label: 'Reputation Management', icon: ShieldCheck },
-      { href: '/local-rank-tracking', label: 'Local Ranks', icon: BarChart2 },
-      { href: '/google-business-ai-profile-optimization', label: 'Google Business', icon: Radar },
-      { href: '/ai-local-seo-content-generation', label: 'Content Generation', icon: FileText },
-      { href: '/ai-local-business-website-builder', label: 'Website Development', icon: Monitor },
-      { href: '/social-media-management-ai-posting', label: 'Social Media', icon: MessageCircle },
+      { href: '/rank-tracking', label: 'Website Rankings', icon: BarChart2 },
+      { href: '/google-business-optimization', label: 'Google Business', icon: Radar },
+      { href: '/content-generation', label: 'Content Generation', icon: FileText },
+      { href: '/ai-website-builder', label: 'Website Development', icon: Monitor },
+      { href: '/ai-social-media-management', label: 'Social Media', icon: MessageCircle },
       { href: '/ai-phone-agents', label: 'AI Phone Agents', icon: Sparkles },
     ],
   },
@@ -121,7 +121,7 @@ export default function Navbar({
                   {link.children ? (
                   // Special case: Services should render as a 3-column mega menu on desktop
                   link.label === 'Services' ? (
-                    <div className="relative group pt-2">
+                    <div className="relative group">
                       <button
                         className={`cursor-pointer text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors font-medium whitespace-nowrap inline-block py-2 ${
                           navVariant === 'marketing' ? 'text-sm max-[1475px]:text-[0.75rem]' : 'text-sm'

@@ -13,15 +13,15 @@ export default function HeroSection() {
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-slate-200 backdrop-blur-sm">
             <Sparkles className="h-4 w-4 text-primary-300" />
-            <span>Optimize every GBP detail with AI</span>
+            <span>Beautiful websites that convert</span>
           </div>
 
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Turn your Google Business Profile into a growth engine
+            AI Web Development<br />& Optimization
           </h1>
 
           <p className="mx-auto mt-6 text-lg leading-8 text-slate-300">
-            Keep your profile fresh, complete, and conversion-ready with AI-led audits, post suggestions, Q&A responses, and catalog improvements.
+            Use AI to generate responsive, mobile-first websites with strong local SEO foundations, clear calls to action, and conversion-focused structure.
           </p>
 
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">

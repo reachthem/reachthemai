@@ -10,7 +10,7 @@ export default function HeroSection() {
           <span>Accurate listings across Google, Yelp, Facebook and hundreds more</span>
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight">Local Listing Aggregation</h1>
+        <h1 className="text-4xl md:text-5xl font-bold leading-tight">Local Listing Optimization, Aggregation,<br />Promotion & Management</h1>
         <p className="mt-6 text-lg max-w-3xl mx-auto text-slate-100">
           Create a single authoritative business profile and syndicate it everywhere — eliminate NAP inconsistencies, remove duplicates, and boost local search visibility with AI-powered automation.
         </p>

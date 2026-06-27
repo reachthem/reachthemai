@@ -13,15 +13,15 @@ export default function HeroSection() {
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-slate-200 backdrop-blur-sm">
             <Sparkles className="h-4 w-4 text-primary-300" />
-            <span>Hyper-local visibility that drives growth</span>
+            <span>Optimize every GBP detail with AI</span>
           </div>
 
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            See where you rank
+            Turn Your Google Business Profile Into a Growth Engine
           </h1>
 
           <p className="mx-auto mt-6 text-lg leading-8 text-slate-300">
-            Track performance in the Local Pack, Google Maps, organic results, and AI answer engines so you can make smarter local marketing decisions.
+            Keep your profile fresh, complete, and conversion-ready with AI-led audits, post suggestions, Q&A responses, and catalog improvements.
           </p>
 
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">

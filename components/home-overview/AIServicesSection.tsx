@@ -16,7 +16,7 @@ export default function AIServicesSection() {
         'Contact forms and integrations',
         'Fast hosting included',
       ],
-      href: '/ai-local-business-website-builder',
+      href: '/ai-website-builder',
     },
     {
       icon: Globe,
@@ -29,7 +29,7 @@ export default function AIServicesSection() {
         'Blog post generation',
         'Meta descriptions',
       ],
-      href: '/ai-local-seo-content-generation',
+      href: '/content-generation',
     },
     {
       icon: Smartphone,
@@ -55,7 +55,7 @@ export default function AIServicesSection() {
         'Engagement tracking',
         'Brand voice customization',
       ],
-      href: '/social-media-management-ai-posting',
+      href: '/ai-social-media-management',
     },
     {
       icon: Mic,
@@ -68,7 +68,7 @@ export default function AIServicesSection() {
         'Posts scheduling',
         'Review response templates',
       ],
-      href: '/google-business-ai-profile-optimization',
+      href: '/google-business-optimization',
     },
   ];
 

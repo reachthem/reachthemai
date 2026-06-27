@@ -23,7 +23,7 @@ export default function AISection() {
             {items.map(([title, text]) => {
               const Icon = title.includes('Real') || title.includes('Smart') ? Bot : title.includes('Connected') ? Workflow : Sparkles;
               return (
-                <div key={title} className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
+                <div key={title} className="rounded-2xl border border-white/10 p-5">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary-500/20 text-primary-300">
                     <Icon className="h-5 w-5" />
                   </div>

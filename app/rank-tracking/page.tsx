@@ -1,22 +1,22 @@
 import type { Metadata } from 'next';
 import Navbar from '@/components/shared/Navbar';
 import Footer from '@/components/shared/Footer';
-import HeroSection from '@/components/ai-local-business-website-builder/HeroSection';
-import OverviewSection from '@/components/ai-local-business-website-builder/OverviewSection';
-import FeaturesSection from '@/components/ai-local-business-website-builder/FeaturesSection';
-import AISection from '@/components/ai-local-business-website-builder/AISection';
-import HowItWorksSection from '@/components/ai-local-business-website-builder/HowItWorksSection';
-import FAQSection from '@/components/ai-local-business-website-builder/FAQSection';
-import CTASection from '@/components/ai-local-business-website-builder/CTASection';
+import HeroSection from '@/components/rank-tracking/HeroSection';
+import OverviewSection from '@/components/rank-tracking/OverviewSection';
+import FeaturesSection from '@/components/rank-tracking/FeaturesSection';
+import AISection from '@/components/rank-tracking/AISection';
+import HowItWorksSection from '@/components/rank-tracking/HowItWorksSection';
+import FAQSection from '@/components/rank-tracking/FAQSection';
+import CTASection from '@/components/rank-tracking/CTASection';
 import ServiceSelectionSection from '@/components/home/ServiceSelectionSection';
 import { getDisplayPrices } from '@/app/actions/admin-settings';
 
 export const metadata: Metadata = {
-  title: 'AI Local Business Website Builder | Reach Them AI',
-  description: 'Launch polished, high-converting local business websites built with AI and local SEO in mind.',
+  title: 'Local Rank Tracking | Reach Them AI',
+  description: 'Track local rankings across Google Maps, the Local Pack, organic search, and AI answer engines with actionable insight.',
 };
 
-export default async function AiLocalBusinessWebsiteBuilderPage() {
+export default async function LocalRankTrackingPage() {
   const { advisorPrice, removalPrice } = await getDisplayPrices();
 
   return (

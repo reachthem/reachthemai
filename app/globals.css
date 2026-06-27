@@ -8,6 +8,11 @@
         line-height: 1.75rem !important;
     }
 
+    h2 {
+        font-size: 1.75rem !important;
+        line-height: 2rem !important;
+    }
+
     .pt-32 {
         padding-top: 3rem !important;
     }

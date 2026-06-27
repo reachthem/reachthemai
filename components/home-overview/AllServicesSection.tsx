@@ -68,7 +68,7 @@ export default function AllServicesSection() {
         'Position history',
         'Local SEO insights',
       ],
-      href: '/local-rank-tracking',
+      href: '/rank-tracking',
     },
     {
       icon: Mic,
@@ -81,7 +81,7 @@ export default function AllServicesSection() {
         'Posts scheduling',
         'Review response templates',
       ],
-      href: '/google-business-ai-profile-optimization',
+      href: '/google-business-optimization',
     },
     {
       icon: Globe,
@@ -94,7 +94,7 @@ export default function AllServicesSection() {
         'Blog post generation',
         'Meta descriptions',
       ],
-      href: '/ai-local-seo-content-generation',
+      href: '/content-generation',
     },
     {
       icon: Zap,
@@ -107,7 +107,7 @@ export default function AllServicesSection() {
         'Contact forms and integrations',
         'Fast hosting included',
       ],
-      href: '/ai-local-business-website-builder',
+      href: '/ai-website-builder',
     },
     {
       icon: MessageSquare,
@@ -120,7 +120,7 @@ export default function AllServicesSection() {
         'Engagement tracking',
         'Brand voice customization',
       ],
-      href: '/social-media-management-ai-posting',
+      href: '/ai-social-media-management',
     },
   ];
 

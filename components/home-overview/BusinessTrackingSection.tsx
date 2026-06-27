@@ -42,7 +42,7 @@ export default function BusinessTrackingSection() {
         'Position history',
         'Local SEO insights',
       ],
-      href: '/local-rank-tracking',
+      href: '/rank-tracking',
     },
     {
       icon: Map,

@@ -13,15 +13,15 @@ export default function HeroSection() {
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-slate-200 backdrop-blur-sm">
             <Sparkles className="h-4 w-4 text-primary-300" />
-            <span>Stay active across every channel</span>
+            <span>Hyper-local visibility that drives growth</span>
           </div>
 
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Keep your social presence consistent and effective
+            Where is Your Site Ranking
           </h1>
 
           <p className="mx-auto mt-6 text-lg leading-8 text-slate-300">
-            Use AI to plan campaigns, create content, and publish updates across the channels that matter most to local businesses.
+            Track performance in the Local Pack, Google Maps, organic results, and AI answer engines so you can make smarter local marketing decisions.
           </p>
 
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">

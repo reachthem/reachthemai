@@ -17,7 +17,7 @@ export default function HeroSection() {
           </div>
 
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Produce SEO content that feels local and performs
+            Produce SEO content that Drives Customer Engagement and Aquisition
           </h1>
 
           <p className="mx-auto mt-6 text-lg leading-8 text-slate-300">

@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import Navbar from '@/components/shared/Navbar';
 import Footer from '@/components/shared/Footer';
-import HeroSection from '@/components/google-business-ai-profile-optimization/HeroSection';
-import OverviewSection from '@/components/google-business-ai-profile-optimization/OverviewSection';
-import FeaturesSection from '@/components/google-business-ai-profile-optimization/FeaturesSection';
-import AISection from '@/components/google-business-ai-profile-optimization/AISection';
-import HowItWorksSection from '@/components/google-business-ai-profile-optimization/HowItWorksSection';
-import FAQSection from '@/components/google-business-ai-profile-optimization/FAQSection';
-import CTASection from '@/components/google-business-ai-profile-optimization/CTASection';
+import HeroSection from '@/components/google-business-optimization/HeroSection';
+import OverviewSection from '@/components/google-business-optimization/OverviewSection';
+import FeaturesSection from '@/components/google-business-optimization/FeaturesSection';
+import AISection from '@/components/google-business-optimization/AISection';
+import HowItWorksSection from '@/components/google-business-optimization/HowItWorksSection';
+import FAQSection from '@/components/google-business-optimization/FAQSection';
+import CTASection from '@/components/google-business-optimization/CTASection';
 import ServiceSelectionSection from '@/components/home/ServiceSelectionSection';
 import { getDisplayPrices } from '@/app/actions/admin-settings';
 
