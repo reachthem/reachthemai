@@ -2,7 +2,7 @@
 
 import { useState, type ReactNode } from 'react';
 import Link from 'next/link';
-import { ChevronDown, Menu } from 'lucide-react';
+import { ChevronDown, Menu, Star, Trash2, MapPin, ShieldCheck, BarChart2, Radar, FileText, Monitor, MessageCircle, Sparkles } from 'lucide-react';
 import AuthAwareButtons from '@/components/AuthAwareButtons';
 import {
   Sheet,
@@ -13,39 +13,28 @@ import {
   SheetClose,
 } from '@/components/ui/sheet';
 
-type NavChild = { href: string; label: string };
+type NavChild = { href: string; label: string; icon?: any };
 type NavLink = { href?: string; label: string; children?: NavChild[] };
 
 const PRICING_PATH = '/pricing';
 
 const baseNavLinks: NavLink[] = [
-  { href: '/', label: 'Home' },
+  { href: '/home', label: 'Home' },
   {
-    href: '/review-services',
-    label: 'Review Services',
+    label: 'Services',
     children: [
-      { href: '/review-generation', label: 'Review Generation' },
-      { href: '/review-removal-services', label: 'Negative Review Removal' },
-      { href: '/ai-advisor', label: 'AI Advisor' },
-      { href: '/business-review-scan', label: 'Analyze Reviews' },
-      { href: '/free-assessment', label: 'Free Assessment' },
-      { href: '/industries', label: 'Industries' },
+      { href: '/review-generation', label: 'Reviews Generation', icon: Star },
+      { href: '/review-removal-services', label: 'Review Removal', icon: Trash2 },
+      { href: '/local-listing-aggregation', label: 'Local Listings', icon: MapPin },
+      { href: '/reputation-management-tracking', label: 'Reputation Management', icon: ShieldCheck },
+      { href: '/local-rank-tracking', label: 'Local Ranks', icon: BarChart2 },
+      { href: '/google-business-ai-profile-optimization', label: 'Google Business', icon: Radar },
+      { href: '/ai-local-seo-content-generation', label: 'Content Generation', icon: FileText },
+      { href: '/ai-local-business-website-builder', label: 'Website Development', icon: Monitor },
+      { href: '/social-media-management-ai-posting', label: 'Social Media', icon: MessageCircle },
+      { href: '/ai-phone-agents', label: 'AI Phone Agents', icon: Sparkles },
     ],
   },
-    {
-      href: '/coming-soon',
-      label: 'Coming Soon',
-      children: [
-        { href: '/local-listing-aggregation', label: 'Local Listing Aggregation' },
-        { href: '/reputation-management-tracking', label: 'Reputation Management' },
-        { href: '/ai-phone-agents', label: 'AI Phone Agents' },
-        { href: '/local-rank-tracking', label: 'Local Rank Tracking' },
-        { href: '/google-business-ai-profile-optimization', label: 'Google Business AI Profile Optimization' },
-        { href: '/ai-local-seo-content-generation', label: 'AI Local SEO Content Generation' },
-        { href: '/ai-local-business-website-builder', label: 'AI Local Business Website Builder' },
-        { href: '/social-media-management-ai-posting', label: 'Social Media Management & AI Posting' },
-      ],
-    },
   { href: PRICING_PATH, label: 'Pricing' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -105,7 +94,7 @@ export default function Navbar({
           <div className="flex items-center gap-2 relative z-10">
             {leftContent}
             {showLogo && (
-              <Link href="/" className="flex-shrink-0 flex items-center">
+              <Link href="/home" className="flex-shrink-0 flex items-center">
                 <img
                   src="https://pgtpgkmtuntmplnuveak.supabase.co/storage/v1/object/public/site-images/logo.png"
                   alt="Reach Them AI"
@@ -117,7 +106,7 @@ export default function Navbar({
 
           {/* Center: Desktop nav links — min 1176px = desktop; below = mobile. Links must be clickable. */}
           <div className="hidden min-[1176px]:flex items-center justify-center gap-6 relative z-10">
-            {navLinks.map((link: NavLink, i) => (
+                {navLinks.map((link: NavLink, i) => (
               <span key={link.href || link.label} className="flex items-center gap-6 relative">
                 {i > 0 && (
                   <span
@@ -126,29 +115,66 @@ export default function Navbar({
                   />
                 )}
                 {link.children ? (
-                  <div className="relative group pt-2">
-                    <button
-                      className={`cursor-pointer text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors font-medium whitespace-nowrap inline-block py-2 ${
-                        navVariant === 'marketing' ? 'text-sm max-[1475px]:text-[0.75rem]' : 'text-sm'
-                      }`}
-                    >
-                      {link.label}
-                    </button>
+                  // Special case: Services should render as a 3-column mega menu on desktop
+                  link.label === 'Services' ? (
+                    <div className="relative group pt-2">
+                      <button
+                        className={`cursor-pointer text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors font-medium whitespace-nowrap inline-block py-2 ${
+                          navVariant === 'marketing' ? 'text-sm max-[1475px]:text-[0.75rem]' : 'text-sm'
+                        }`}
+                      >
+                        {link.label}
+                      </button>
 
-                    <div className="absolute left-0 top-full w-80 max-w-[90vw] bg-white dark:bg-slate-800 rounded-xl shadow-lg invisible group-hover:visible transform scale-95 group-hover:scale-100 transition-all pointer-events-none group-hover:pointer-events-auto z-50">
-                      <div className="py-2">
-                        {link.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900"
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
+                      <div className="absolute left-0 top-full w-[min(80vw,900px)] bg-white dark:bg-slate-800 rounded-xl shadow-lg invisible group-hover:visible transform scale-95 group-hover:scale-100 transition-all pointer-events-none group-hover:pointer-events-auto z-50">
+                        <div className="p-4">
+                          <div className="grid grid-cols-3 gap-4">
+                            {link.children.map((child) => (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                className="flex items-center gap-3 rounded-md px-3 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900"
+                              >
+                                {child.icon ? (
+                                  <child.icon className="h-4 w-4 text-slate-500 dark:text-slate-400" />
+                                ) : null}
+                                <span className="truncate">{child.label}</span>
+                                {child.href === '/ai-phone-agents' && (
+                                  <span className="ml-auto inline-flex items-center rounded-full bg-primary-600 text-white text-[0.6rem] font-semibold px-2 py-0.5">
+                                    New
+                                  </span>
+                                )}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="relative group pt-2">
+                      <button
+                        className={`cursor-pointer text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors font-medium whitespace-nowrap inline-block py-2 ${
+                          navVariant === 'marketing' ? 'text-sm max-[1475px]:text-[0.75rem]' : 'text-sm'
+                        }`}
+                      >
+                        {link.label}
+                      </button>
+
+                      <div className="absolute left-0 top-full w-80 max-w-[90vw] bg-white dark:bg-slate-800 rounded-xl shadow-lg invisible group-hover:visible transform scale-95 group-hover:scale-100 transition-all pointer-events-none group-hover:pointer-events-auto z-50">
+                        <div className="py-2">
+                          {link.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )
                 ) : (
                   <Link
                     href={link.href!}

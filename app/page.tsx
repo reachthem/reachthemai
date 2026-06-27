@@ -1,18 +1,8 @@
-import type { Metadata } from 'next';
-import Script from 'next/script';
-import Navbar from '@/components/shared/Navbar';
-import Footer from '@/components/shared/Footer';
-import HomeHeroSection from '@/components/home/HomeHeroSection';
-import ServiceSelectionSection from '@/components/home/ServiceSelectionSection';
-import CombinedFeaturesSection from '@/components/home/CombinedFeaturesSection';
-import ReviewSitesBanner from '@/components/home/ReviewSitesBanner';
-import NegativeReviewsCostVideoSection from '@/components/home/NegativeReviewsCostVideoSection';
-import ReviewGrowthSection from '@/components/home/ReviewGrowthSection';
-import StatsBar from '@/components/home/StatsBar';
-import PlatformsSupportedSection from '@/components/home/PlatformsSupportedSection';
-import TestimonialsSection from '@/components/home/TestimonialsSection';
-import HomeFAQSection from '@/components/home/HomeFAQSection';
-import HomeCTASection from '@/components/home/HomeCTASection';import HomePricing from '@/components/HomePricing';import { getDisplayPrices } from '@/app/actions/admin-settings';
+import { redirect } from 'next/navigation';
+
+export default function Home() {
+  redirect('/home');
+}
 
 export const metadata: Metadata = {
   title: 'Remove Bad Reviews & Protect Your Reputation | Reach Them AI',
@@ -86,35 +76,4 @@ function buildFaqJsonLd(advisorPrice: string, removalPrice: string) {
 };
 }
 
-export default async function Home() {
-  const { advisorPrice, removalPrice } = await getDisplayPrices();
-  const faqJsonLd = buildFaqJsonLd(advisorPrice, removalPrice);
-
-  return (
-    <>
-      <Script
-        id="faq-jsonld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <div className="min-h-screen bg-white dark:bg-slate-900">
-        <Navbar background="white" maxWidth="98%" />
-        <main className="pt-16">
-          <HomeHeroSection />
-          <ReviewSitesBanner />
-          <NegativeReviewsCostVideoSection />
-          <ServiceSelectionSection advisorPrice={advisorPrice} removalPrice={removalPrice} />
-          <HomePricing />
-          <CombinedFeaturesSection />
-          <ReviewGrowthSection />
-          <StatsBar />
-          <PlatformsSupportedSection />
-          <TestimonialsSection />
-          <HomeFAQSection advisorPrice={advisorPrice} removalPrice={removalPrice} />
-          <HomeCTASection advisorPrice={advisorPrice} />
-        </main>
-        <Footer />
-      </div>
-    </>
-  );
-}
+// root now redirects to /home — content moved to /home

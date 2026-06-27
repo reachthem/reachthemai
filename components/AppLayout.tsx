@@ -513,8 +513,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 <Navbar
                     variant="sticky"
                     background="white"
-                    showLogo={false}
-                    navVariant="app"
+                    showLogo={true}
+                    navVariant="marketing"
                     leftContent={
                         <Link href="/app" className="lg:hidden flex items-center gap-2 shrink-0">
                             <Image
