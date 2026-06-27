@@ -128,15 +128,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 <div className="h-16 flex-shrink-0 flex items-center justify-between px-4 border-b dark:border-gray-800">
                     <Link href="/app" className="flex items-center gap-2">
                         <Image
-                            src="/logo-icon.svg"
+                            src="/logo.png"
                             alt="Reach Them AI"
-                            width={32}
-                            height={32}
+                            width={250}
+                            height={250}
+                            className="w-[250px] h-auto object-contain"
                         />
-                        <span className="text-lg font-bold tracking-tight text-[#182825] dark:text-white">
-                            Reach Them{' '}
-                            <span className="text-primary-600 dark:text-primary-400">AI</span>
-                        </span>
                     </Link>
                     <button
                         onClick={toggleSidebar}
@@ -513,20 +510,18 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 <Navbar
                     variant="sticky"
                     background="white"
-                    showLogo={true}
+                    showLogo={false}
+                    hideNavLinks={true}
                     navVariant="marketing"
                     leftContent={
-                        <Link href="/app" className="lg:hidden flex items-center gap-2 shrink-0">
+                        <Link href="/app" className="lg:hidden flex items-center shrink-0">
                             <Image
-                                src="/logo-icon.svg"
+                                src="/logo.png"
                                 alt="Reach Them AI"
-                                width={32}
-                                height={32}
+                                width={250}
+                                height={250}
+                                className="w-[250px] h-auto object-contain"
                             />
-                            <span className="text-lg font-bold tracking-tight text-[#182825] dark:text-white">
-                                Reach Them{' '}
-                                <span className="text-primary-600 dark:text-primary-400">AI</span>
-                            </span>
                         </Link>
                     }
                     rightContent={

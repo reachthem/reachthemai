@@ -19,7 +19,7 @@ type NavLink = { href?: string; label: string; children?: NavChild[] };
 const PRICING_PATH = '/pricing';
 
 const baseNavLinks: NavLink[] = [
-  { href: '/home', label: 'Home' },
+  { href: '/', label: 'Home' },
   {
     label: 'Services',
     children: [
@@ -50,6 +50,8 @@ interface NavbarProps {
   rightContent?: ReactNode;
   /** When false, hide the logo (e.g. dashboard where sidebar already shows it) */
   showLogo?: boolean;
+  /** When true, hide the center navigation links and mobile sheet */
+  hideNavLinks?: boolean;
   /** Inner container max-width: "98%" for home page; default "90%" */
   maxWidth?: '90%' | '98%';
   /** "app" = hide FAQ and Industries (dashboard header); "marketing" = show all */
@@ -62,6 +64,7 @@ export default function Navbar({
   leftContent,
   rightContent,
   showLogo = true,
+  hideNavLinks = false,
   maxWidth = '90%',
   navVariant = 'marketing',
 }: NavbarProps) {
@@ -105,16 +108,17 @@ export default function Navbar({
           </div>
 
           {/* Center: Desktop nav links — min 1176px = desktop; below = mobile. Links must be clickable. */}
-          <div className="hidden min-[1176px]:flex items-center justify-center gap-6 relative z-10">
-                {navLinks.map((link: NavLink, i) => (
-              <span key={link.href || link.label} className="flex items-center gap-6 relative">
-                {i > 0 && (
-                  <span
-                    className="h-4 w-px bg-slate-300 dark:bg-slate-600 flex-shrink-0 pointer-events-none"
-                    aria-hidden
-                  />
-                )}
-                {link.children ? (
+          {!hideNavLinks && (
+            <div className="hidden min-[1176px]:flex items-center justify-center gap-6 relative z-10">
+                  {navLinks.map((link: NavLink, i) => (
+                <span key={link.href || link.label} className="flex items-center gap-6 relative">
+                  {i > 0 && (
+                    <span
+                      className="h-4 w-px bg-slate-300 dark:bg-slate-600 flex-shrink-0 pointer-events-none"
+                      aria-hidden
+                    />
+                  )}
+                  {link.children ? (
                   // Special case: Services should render as a 3-column mega menu on desktop
                   link.label === 'Services' ? (
                     <div className="relative group pt-2">
@@ -188,6 +192,7 @@ export default function Navbar({
               </span>
             ))}
           </div>
+          )}
 
           {/* Right: Auth buttons or custom content (e.g. user dropdown) + mobile hamburger — mobile breakpoint 1175px */}
           <div className="flex items-center justify-end col-start-3">
@@ -198,91 +203,93 @@ export default function Navbar({
                 <div className="hidden min-[1176px]:block">
                   <AuthAwareButtons variant="nav" />
                 </div>
-                <div className="min-[1176px]:hidden">
-              <Sheet open={open} onOpenChange={setOpen}>
-                <SheetTrigger asChild>
-                  <button
-                    className="p-2 rounded-lg text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                    aria-label="Open menu"
-                  >
-                    <Menu className="h-6 w-6" />
-                  </button>
-                </SheetTrigger>
-
-                <SheetContent side="right" className="w-[92vw] sm:w-[24rem]">
-                  <SheetHeader>
-                    <SheetTitle className="flex items-center gap-2">
-                      <img
-                        src="https://pgtpgkmtuntmplnuveak.supabase.co/storage/v1/object/public/site-images/logo.png"
-                        alt="Reach Them AI"
-                        className="w-[220px] h-auto object-contain"
-                      />
-                    </SheetTitle>
-                  </SheetHeader>
-
-                  <nav className="mt-6 flex flex-col gap-2">
-                    {navLinks.map((link: NavLink) => (
-                      link.children ? (
-                        <div key={link.label} className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50/80 dark:border-slate-700 dark:bg-slate-900/70">
-                          <button
-                            type="button"
-                            className="flex w-full items-center justify-between px-4 py-3 text-left text-slate-700 dark:text-slate-300 font-semibold"
-                            onClick={() => setMobileOpenSection(mobileOpenSection === link.label ? null : link.label)}
-                          >
-                            <span>{link.label}</span>
-                            <ChevronDown className={`h-4 w-4 transition-transform ${mobileOpenSection === link.label ? 'rotate-180' : ''}`} />
-                          </button>
-                          {mobileOpenSection === link.label && (
-                            <div className="border-t border-slate-200 bg-white/70 p-2 dark:border-slate-700 dark:bg-slate-950/70">
-                              {link.children.map((child) => (
-                                <SheetClose asChild key={child.href}>
-                                  <Link
-                                    href={child.href}
-                                    className="block rounded-lg px-3 py-2.5 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
-                                    onClick={() => setOpen(false)}
-                                  >
-                                    {child.label}
-                                  </Link>
-                                </SheetClose>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      ) : (
-                        <SheetClose asChild key={link.href}>
-                          <Link
-                            href={link.href!}
-                            className="rounded-xl px-4 py-3 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold transition-colors"
-                            onClick={() => setOpen(false)}
-                          >
-                            {link.label}
-                          </Link>
-                        </SheetClose>
-                      )
-                    ))}
-
-                    <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 flex flex-col gap-3">
-                      <SheetClose asChild>
-                        <Link
-                          href="/auth/login"
-                          className="rounded-xl px-4 py-3 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold transition-colors"
+                {!hideNavLinks && (
+                  <div className="min-[1176px]:hidden">
+                    <Sheet open={open} onOpenChange={setOpen}>
+                      <SheetTrigger asChild>
+                        <button
+                          className="p-2 rounded-lg text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                          aria-label="Open menu"
                         >
-                          Login
-                        </Link>
-                      </SheetClose>
-                      <SheetClose asChild>
-                        <Link
-                          href="/auth/register"
-                          className="rounded-xl bg-primary-600 px-4 py-3 text-center font-semibold text-white transition-colors hover:bg-primary-700"
-                        >
-                          Get Started
-                        </Link>
-                      </SheetClose>
-                    </div>
-                  </nav>
-                </SheetContent>
-              </Sheet>
-                </div>
+                          <Menu className="h-6 w-6" />
+                        </button>
+                      </SheetTrigger>
+
+                      <SheetContent side="right" className="w-[92vw] sm:w-[24rem]">
+                        <SheetHeader>
+                          <SheetTitle className="flex items-center gap-2">
+                            <img
+                              src="https://pgtpgkmtuntmplnuveak.supabase.co/storage/v1/object/public/site-images/logo.png"
+                              alt="Reach Them AI"
+                              className="w-[220px] h-auto object-contain"
+                            />
+                          </SheetTitle>
+                        </SheetHeader>
+
+                        <nav className="mt-6 flex flex-col gap-2">
+                          {navLinks.map((link: NavLink) => (
+                            link.children ? (
+                              <div key={link.label} className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50/80 dark:border-slate-700 dark:bg-slate-900/70">
+                                <button
+                                  type="button"
+                                  className="flex w-full items-center justify-between px-4 py-3 text-left text-slate-700 dark:text-slate-300 font-semibold"
+                                  onClick={() => setMobileOpenSection(mobileOpenSection === link.label ? null : link.label)}
+                                >
+                                  <span>{link.label}</span>
+                                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileOpenSection === link.label ? 'rotate-180' : ''}`} />
+                                </button>
+                                {mobileOpenSection === link.label && (
+                                  <div className="border-t border-slate-200 bg-white/70 p-2 dark:border-slate-700 dark:bg-slate-950/70">
+                                    {link.children.map((child) => (
+                                      <SheetClose asChild key={child.href}>
+                                        <Link
+                                          href={child.href}
+                                          className="block rounded-lg px-3 py-2.5 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                                          onClick={() => setOpen(false)}
+                                        >
+                                          {child.label}
+                                        </Link>
+                                      </SheetClose>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            ) : (
+                              <SheetClose asChild key={link.href}>
+                                <Link
+                                  href={link.href!}
+                                  className="rounded-xl px-4 py-3 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold transition-colors"
+                                  onClick={() => setOpen(false)}
+                                >
+                                  {link.label}
+                                </Link>
+                              </SheetClose>
+                            )
+                          ))}
+
+                          <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 flex flex-col gap-3">
+                            <SheetClose asChild>
+                              <Link
+                                href="/auth/login"
+                                className="rounded-xl px-4 py-3 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold transition-colors"
+                              >
+                                Login
+                              </Link>
+                            </SheetClose>
+                            <SheetClose asChild>
+                              <Link
+                                href="/auth/register"
+                                className="rounded-xl bg-primary-600 px-4 py-3 text-center font-semibold text-white transition-colors hover:bg-primary-700"
+                              >
+                                Get Started
+                              </Link>
+                            </SheetClose>
+                          </div>
+                        </nav>
+                      </SheetContent>
+                    </Sheet>
+                  </div>
+                )}
               </>
             )}
           </div>
