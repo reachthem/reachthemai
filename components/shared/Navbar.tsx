@@ -2,7 +2,7 @@
 
 import { useState, type ReactNode } from 'react';
 import Link from 'next/link';
-import { ChevronDown, Menu, Star, Trash2, MapPin, ShieldCheck, BarChart2, Radar, FileText, Monitor, MessageCircle, Sparkles } from 'lucide-react';
+import { ChevronDown, Menu, Star, Trash2, MapPin, ShieldCheck, BarChart2, Radar, FileText, Monitor, MessageCircle, Sparkles, type LucideIcon } from 'lucide-react';
 import AuthAwareButtons from '@/components/AuthAwareButtons';
 import {
   Sheet,
@@ -13,7 +13,7 @@ import {
   SheetClose,
 } from '@/components/ui/sheet';
 
-type NavChild = { href: string; label: string; icon?: any };
+type NavChild = { href: string; label: string; icon?: LucideIcon };
 type NavLink = { href?: string; label: string; children?: NavChild[] };
 
 const PRICING_PATH = '/pricing';
